@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --animate-sweep: sweep 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Global Typography System Base Styles */
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+p, li {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+/* Unified Custom Typography Utility Classes */
+@utility text-display-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem); /* 40px to 60px */
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+@utility text-display-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem); /* 32px to 44px */
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+@utility text-display-h3 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3vw, 1.875rem); /* 24px to 30px */
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+@utility text-display-h4 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 2vw, 1.5rem); /* 20px to 24px */
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #264A8A; /* Brand accent blue */
+}
+
+@utility text-body-large {
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@utility text-body {
+  font-family: var(--font-sans);
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+@utility text-small {
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility text-caption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@utility btn-typography {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Animations & Styles */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 5s ease-in-out infinite;
+}
+
+/* Blueprint Line Grid Pattern */
+.bg-blueprint {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(249, 115, 22, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
+}
+
+.bg-blueprint-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(249, 115, 22, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.06) 1px, transparent 1px);
+}
+
+.bg-grid-light {
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fafaf9;
+}
+::-webkit-scrollbar-thumb {
+  background: #e7e5e4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 70s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 80s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-150%) skewX(-25deg); }
+  100% { transform: translateX(300%) skewX(-25deg); }
+}
+
+.group:hover .group-hover-sweep {
+  animation: sweep 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Customizer Dynamic Paddings */
+section:not(#home):not(main section) {
+  padding-top: var(--section-padding-y, 96px) !important;
+  padding-bottom: var(--section-padding-y, 96px) !important;
+  transition: padding 0.2s ease-in-out;
+}
+
+
